@@ -1,0 +1,15 @@
+<head>
+    <meta charset="utf-8">
+    <title>Cover Template · Bootstrap v5.3</title>
+</head>
+<body class="h-100 text-center text-bg-dark">
+    {% include 'header.html' %}
+    {% if logged_in %}
+    <h1>Welcome {{current_user.name}}</h1>
+    <h1>A site for planning your actions</h1>
+    <a href="{{url_for('tasks')}}" type="button" class="w-10 btn btn-lg btn-outline-primary">My Task</a>
+    {% else %}
+    <h1>A site for planning your actions</h1>
+    {% endif %}
+    {% include 'footer.html' %}
+</body>

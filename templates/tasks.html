@@ -1,0 +1,23 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<body class="h-100 text-center text-bg-dark">
+    {% include 'header.html' %}
+    <div class="container" style="padding: 2 25%;">
+    <div class="card mb-4 rounded-3">
+          <div class="card-body text-bg-dark">
+              <h3>My Tasks</h3>
+            <ul class="list-unstyled mt-3 mb-4">
+                {% for x in task %}
+                <li>
+                    {{x.body}}
+                    <a href="{{url_for('delete', task_id = x.id)}}" class="align-items-end">X</a>
+                {% endfor %}
+                </li>
+            </ul>
+            <a href="{{url_for('add_task')}}" type="button" class="w-100 btn btn-lg btn-outline-primary">Add Task</a>
+          </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+{% endblock %}
